@@ -7,4 +7,5 @@ import './styles/global.css'
 import './styles/schedule.css'
 
 import './modules/form/submit.js'
+import './modules/load.js'
 
