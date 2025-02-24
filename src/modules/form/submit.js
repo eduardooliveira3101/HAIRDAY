@@ -1,6 +1,8 @@
 //Configuração da data do calendário
 import dayjs from "dayjs"
 
+import {scheduleNew} from '../../../services/schedule-new'
+
 const form = document.querySelector('form')
 const clientName = document.getElementById('client')
 const selectedDate = document.getElementById('date')
@@ -14,11 +16,10 @@ selectedDate.value = inputToday
 //Define a data minima como a data atual
 selectedDate.min = inputToday
 
-form.onsubmit = (event) => {
+form.onsubmit = async (event) => {
   event.preventDefault()
 
   try {
-
     //Recuperando o nome do cliente
     const name = clientName.value.trim()
     if(!name) {
@@ -36,12 +37,11 @@ form.onsubmit = (event) => {
 
     //Insere a hora na data
     const when = dayjs(selectedDate.value).add(hour, 'hour')
-    console.log(when)
 
     //Gerando ID (Identificador único)
     const id = new Date().getTime()
 
-    console.log({
+    await scheduleNew({
       id,
       name,
       when
