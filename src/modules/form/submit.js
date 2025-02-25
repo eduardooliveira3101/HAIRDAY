@@ -1,5 +1,6 @@
 //Configuração da data do calendário
 import dayjs from "dayjs"
+import {schedulesDay} from '../schedules/load.js'
 
 import {scheduleNew} from '../../../services/schedule-new'
 
@@ -46,6 +47,12 @@ form.onsubmit = async (event) => {
       name,
       when
     })
+
+    //Recarrega os agendamentos 
+    await schedulesDay()
+
+        //Limpa o input de nome do cliente
+    clientName.value = ''
 
   } catch (error) {
     alert('Não foi possível realizar o agendamento')
