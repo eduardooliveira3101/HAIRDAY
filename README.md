@@ -5,6 +5,5 @@ Hairday é um sistema de agendamento de horários para salões de beleza, barbei
 ## Tecnologias utilizada
 HTML, CSS e JavaScript, Node.js
 
-
 ## Screenshot
 ![](./src/assets/image.png)
