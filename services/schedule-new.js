@@ -2,6 +2,8 @@ import { apiConfing } from './api-config.js'
 
 export async function scheduleNew({id, name, when}) {
   try {
+
+    //Faz a requisição para enviar os dados do agendamento
     await fetch(`${apiConfing.baseURL}/schedules`, {
       method: 'POST',
       headers: {
